@@ -27,12 +27,10 @@ Cmdlet to add Azure Sql Databases into a Failover Group. Database input paramete
 PS C:\> Add-AzureRmSqlDatabaseToFailoverGroup -FailoverGroupName myFg-ResourceGroupName myRg -ServerName mysvr
 ```
 
-### Example 2
+### Example 2: Using Pipe Line to pipe in the database objects 
 ```
-Using Pipe Line to pipe in the database objects 
-
 PS C:\> Get-AzureRmSqlDatabase -ServerName testsvr -ResourceGroupName rg2 | Add-AzureRmSqlDatabaseToFailoverGroup -FailoverGroupName myFg-ResourceGroupName myRg -ServerName mysvr
-
+```
 
 
 ## PARAMETERS

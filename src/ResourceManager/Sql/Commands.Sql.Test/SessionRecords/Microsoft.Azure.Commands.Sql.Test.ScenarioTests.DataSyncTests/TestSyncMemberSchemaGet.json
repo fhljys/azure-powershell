@@ -1,0 +1,385 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "/subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourcegroups/sql-ds-cmdlet-server9038?api-version=2016-02-01",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvYjNlZTNhN2YtNzYxNC00NjQ0LWFkMDctYWZhODMyNjIwYjRiL3Jlc291cmNlZ3JvdXBzL3NxbC1kcy1jbWRsZXQtc2VydmVyOTAzOD9hcGktdmVyc2lvbj0yMDE2LTAyLTAx",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"location\": \"West US\"\r\n}",
+      "RequestHeaders": {
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "29"
+        ],
+        "User-Agent": [
+          "Microsoft.Azure.Management.Resources.ResourceManagementClient/2.0.0.0"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"id\": \"/subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourceGroups/sql-ds-cmdlet-server9038\",\r\n  \"name\": \"sql-ds-cmdlet-server9038\",\r\n  \"location\": \"westus\",\r\n  \"properties\": {\r\n    \"provisioningState\": \"Succeeded\"\r\n  }\r\n}",
+      "ResponseHeaders": {
+        "Content-Length": [
+          "201"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1177"
+        ],
+        "x-ms-request-id": [
+          "180b9472-3def-4c6d-b387-2bb44bbb4ff5"
+        ],
+        "x-ms-correlation-request-id": [
+          "180b9472-3def-4c6d-b387-2bb44bbb4ff5"
+        ],
+        "x-ms-routing-request-id": [
+          "NORTHEUROPE:20160601T090833Z:180b9472-3def-4c6d-b387-2bb44bbb4ff5"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Date": [
+          "Wed, 01 Jun 2016 09:08:33 GMT"
+        ]
+      },
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/Subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourceGroups/sql-ds-cmdlet-server9038/providers/Microsoft.DataConnect/syncGroups/onesdk2966?api-version=2016-05-01-preview",
+      "EncodedRequestUri": "L1N1YnNjcmlwdGlvbnMvYjNlZTNhN2YtNzYxNC00NjQ0LWFkMDctYWZhODMyNjIwYjRiL3Jlc291cmNlR3JvdXBzL3NxbC1kcy1jbWRsZXQtc2VydmVyOTAzOC9wcm92aWRlcnMvTWljcm9zb2Z0LkRhdGFDb25uZWN0L3N5bmNHcm91cHMvb25lc2RrMjk2Nj9hcGktdmVyc2lvbj0yMDE2LTA1LTAxLXByZXZpZXc=",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "User-Agent": [
+          "Microsoft.Azure.Management.Sql.SqlManagementClient/0.9.0.0"
+        ],
+        "x-ms-client-request-id": [
+          "8bf97152-1a9b-4395-bdff-c748ab3da25c"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"ResourceNotFound\",\r\n    \"message\": \"The resource is not found.\"\r\n  }\r\n}",
+      "ResponseHeaders": {
+        "Content-Length": [
+          "76"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "c135c710-6214-47fd-b09d-01cc28f8298d"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "14775"
+        ],
+        "x-ms-correlation-request-id": [
+          "f312a422-3ff3-4b8e-8c61-0dcc6721a1ed"
+        ],
+        "x-ms-routing-request-id": [
+          "NORTHEUROPE:20160601T090835Z:f312a422-3ff3-4b8e-8c61-0dcc6721a1ed"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Date": [
+          "Wed, 01 Jun 2016 09:08:34 GMT"
+        ],
+        "Server": [
+          "Microsoft-IIS/8.0"
+        ],
+        "X-AspNet-Version": [
+          "4.0.30319"
+        ]
+      },
+      "StatusCode": 404
+    },
+    {
+      "RequestUri": "/subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourceGroups/sql-ds-cmdlet-server9038/providers/Microsoft.DataConnect/syncGroups/onesdk2966?api-version=2016-05-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvYjNlZTNhN2YtNzYxNC00NjQ0LWFkMDctYWZhODMyNjIwYjRiL3Jlc291cmNlR3JvdXBzL3NxbC1kcy1jbWRsZXQtc2VydmVyOTAzOC9wcm92aWRlcnMvTWljcm9zb2Z0LkRhdGFDb25uZWN0L3N5bmNHcm91cHMvb25lc2RrMjk2Nj9hcGktdmVyc2lvbj0yMDE2LTA1LTAxLXByZXZpZXc=",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"properties\": {\r\n    \"interval\": 500,\r\n    \"description\": \"sync-group\",\r\n    \"conflictResolutionPolicy\": \"Memberwin\"\r\n  }\r\n}",
+      "RequestHeaders": {
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "129"
+        ],
+        "User-Agent": [
+          "Microsoft.Azure.Management.Sql.SqlManagementClient/0.9.0.0"
+        ],
+        "x-ms-client-request-id": [
+          "1adc167e-92bf-452e-8c7e-c0e915ccb81a"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"name\": \"onesdk2966\",\r\n  \"id\": \"/subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourceGroups/sql-ds-cmdlet-server9038/providers/Microsoft.DataConnect/syncGroups/onesdk2966\",\r\n  \"type\": \"Microsoft.DataConnect/syncGroups\",\r\n  \"location\": null,\r\n  \"properties\": {\r\n    \"description\": \"sync-group\",\r\n    \"interval\": \"500\",\r\n    \"conflictResolutionPolicy\": \"MemberWin\",\r\n    \"schema\": null,\r\n    \"lastSyncTime\": \"2016-06-01T09:08:36.164217Z\",\r\n    \"state\": \"Processing\"\r\n  }\r\n}",
+      "ResponseHeaders": {
+        "Content-Length": [
+          "410"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "d5be7db7-8756-4e61-968b-76e062f14911"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1176"
+        ],
+        "x-ms-correlation-request-id": [
+          "c2cab7fb-4fad-48aa-b850-4ff3cd0f03e6"
+        ],
+        "x-ms-routing-request-id": [
+          "NORTHEUROPE:20160601T090836Z:c2cab7fb-4fad-48aa-b850-4ff3cd0f03e6"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Date": [
+          "Wed, 01 Jun 2016 09:08:36 GMT"
+        ],
+        "Server": [
+          "Microsoft-IIS/8.0"
+        ],
+        "X-AspNet-Version": [
+          "4.0.30319"
+        ]
+      },
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourceGroups/sql-ds-cmdlet-server9038/providers/Microsoft.DataConnect/syncGroups/onesdk2966/syncMembers/onesdk9110?api-version=2016-05-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvYjNlZTNhN2YtNzYxNC00NjQ0LWFkMDctYWZhODMyNjIwYjRiL3Jlc291cmNlR3JvdXBzL3NxbC1kcy1jbWRsZXQtc2VydmVyOTAzOC9wcm92aWRlcnMvTWljcm9zb2Z0LkRhdGFDb25uZWN0L3N5bmNHcm91cHMvb25lc2RrMjk2Ni9zeW5jTWVtYmVycy9vbmVzZGs5MTEwP2FwaS12ZXJzaW9uPTIwMTYtMDUtMDEtcHJldmlldw==",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "User-Agent": [
+          "Microsoft.Azure.Management.Sql.SqlManagementClient/0.9.0.0"
+        ],
+        "x-ms-client-request-id": [
+          "f1d1c30f-84ed-486c-9c48-0ec617b83930"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"ResourceNotFound\",\r\n    \"message\": \"The resource is not found.\"\r\n  }\r\n}",
+      "ResponseHeaders": {
+        "Content-Length": [
+          "76"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "b711962c-ebdd-4a01-865d-e791615eaf46"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "14774"
+        ],
+        "x-ms-correlation-request-id": [
+          "37c32142-29d2-49b1-b7b1-85f567e009f8"
+        ],
+        "x-ms-routing-request-id": [
+          "NORTHEUROPE:20160601T090837Z:37c32142-29d2-49b1-b7b1-85f567e009f8"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Date": [
+          "Wed, 01 Jun 2016 09:08:37 GMT"
+        ],
+        "Server": [
+          "Microsoft-IIS/8.0"
+        ],
+        "X-AspNet-Version": [
+          "4.0.30319"
+        ]
+      },
+      "StatusCode": 404
+    },
+    {
+      "RequestUri": "/subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourceGroups/sql-ds-cmdlet-server9038/providers/Microsoft.DataConnect/syncGroups/onesdk2966/syncMembers/onesdk9110?api-version=2016-05-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvYjNlZTNhN2YtNzYxNC00NjQ0LWFkMDctYWZhODMyNjIwYjRiL3Jlc291cmNlR3JvdXBzL3NxbC1kcy1jbWRsZXQtc2VydmVyOTAzOC9wcm92aWRlcnMvTWljcm9zb2Z0LkRhdGFDb25uZWN0L3N5bmNHcm91cHMvb25lc2RrMjk2Ni9zeW5jTWVtYmVycy9vbmVzZGs5MTEwP2FwaS12ZXJzaW9uPTIwMTYtMDUtMDEtcHJldmlldw==",
+      "RequestMethod": "PUT",
+      "RequestBody": "{\r\n  \"properties\": {\r\n    \"syncDirection\": \"Upload\",\r\n    \"description\": \"sync member default\",\r\n    \"databaseType\": \"ConnectionString\"\r\n  }\r\n}",
+      "RequestHeaders": {
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "143"
+        ],
+        "User-Agent": [
+          "Microsoft.Azure.Management.Sql.SqlManagementClient/0.9.0.0"
+        ],
+        "x-ms-client-request-id": [
+          "61f25730-1a0e-4b5b-8ef8-fac8e67a4db0"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"name\": \"onesdk9110\",\r\n  \"properties\": {\r\n    \"description\": \"sync member default\",\r\n    \"isHub\": null,\r\n    \"isSchemaMaster\": null,\r\n    \"agentName\": null,\r\n    \"onPremisesDatabaseId\": null,\r\n    \"cloudServerName\": null,\r\n    \"cloudDatabaseName\": null,\r\n    \"userName\": null,\r\n    \"password\": null,\r\n    \"connectionString\": null,\r\n    \"syncDirection\": \"Upload\",\r\n    \"state\": \"Provisioning\"\r\n  }\r\n}",
+      "ResponseHeaders": {
+        "Content-Length": [
+          "304"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "0162d02b-299e-4340-95da-07d92794350f"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "x-ms-ratelimit-remaining-subscription-writes": [
+          "1175"
+        ],
+        "x-ms-correlation-request-id": [
+          "6483f8c5-0262-4cb0-8040-38a01c300bd8"
+        ],
+        "x-ms-routing-request-id": [
+          "NORTHEUROPE:20160601T090838Z:6483f8c5-0262-4cb0-8040-38a01c300bd8"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Date": [
+          "Wed, 01 Jun 2016 09:08:38 GMT"
+        ],
+        "Location": [
+          "https://api-dogfood.resources.windows-int.net/subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourceGroups/sql-ds-cmdlet-server9038/providers/Microsoft.DataConnect/syncGroups/onesdk2966/syncMembers/onesdk9110?api-version=2016-05-01-preview"
+        ],
+        "Server": [
+          "Microsoft-IIS/8.0"
+        ],
+        "X-AspNet-Version": [
+          "4.0.30319"
+        ]
+      },
+      "StatusCode": 201
+    },
+    {
+      "RequestUri": "/subscriptions/b3ee3a7f-7614-4644-ad07-afa832620b4b/resourceGroups/sql-ds-cmdlet-server9038/providers/Microsoft.DataConnect/syncGroups/onesdk2966/syncMembers/onesdk9110/schemas?api-version=2016-05-01-preview",
+      "EncodedRequestUri": "L3N1YnNjcmlwdGlvbnMvYjNlZTNhN2YtNzYxNC00NjQ0LWFkMDctYWZhODMyNjIwYjRiL3Jlc291cmNlR3JvdXBzL3NxbC1kcy1jbWRsZXQtc2VydmVyOTAzOC9wcm92aWRlcnMvTWljcm9zb2Z0LkRhdGFDb25uZWN0L3N5bmNHcm91cHMvb25lc2RrMjk2Ni9zeW5jTWVtYmVycy9vbmVzZGs5MTEwL3NjaGVtYXM/YXBpLXZlcnNpb249MjAxNi0wNS0wMS1wcmV2aWV3",
+      "RequestMethod": "GET",
+      "RequestBody": "",
+      "RequestHeaders": {
+        "User-Agent": [
+          "Microsoft.Azure.Management.Sql.SqlManagementClient/0.9.0.0"
+        ],
+        "x-ms-client-request-id": [
+          "5d8ad141-9bbd-486d-b7e5-0284ee1fb80c"
+        ]
+      },
+      "ResponseBody": "{\r\n  \"value\": [\"tables\": [\r\n    {\r\n      \"columns\": [\r\n        {\r\n          \"errorId\": null,\r\n          \"hasError\": null,\r\n          \"filterIndex\": null,\r\n          \"filterLogicalOperator\": null,\r\n          \"filterOperator\": null,\r\n          \"filterValue\": null,\r\n          \"isFilterable\": null,\r\n          \"isFiltered\": null,\r\n          \"dataSize\": 100,\r\n          \"dataType\": \"String\",\r\n          \"name\": \"b3ee3a7f-7614-4644-ad07-afa832620b4bcolumn1\",\r\n          \"quotedName\": \"b3ee3a7f-7614-4644-ad07-afa832620b4bsql-ds-cmdlet-server9038onesdk9110column1\"\r\n        },\r\n        {\r\n          \"errorId\": null,\r\n          \"hasError\": null,\r\n          \"filterIndex\": null,\r\n          \"filterLogicalOperator\": null,\r\n          \"filterOperator\": null,\r\n          \"filterValue\": null,\r\n          \"isFilterable\": null,\r\n          \"isFiltered\": null,\r\n          \"dataSize\": 200,\r\n          \"dataType\": \"String\",\r\n          \"name\": \"b3ee3a7f-7614-4644-ad07-afa832620b4bcolumn2\",\r\n          \"quotedName\": \"b3ee3a7f-7614-4644-ad07-afa832620b4bsql-ds-cmdlet-server9038onesdk9110column2\"\r\n        }\r\n      ],\r\n      \"errorId\": null,\r\n      \"hasError\": null,\r\n      \"filterClass\": null,\r\n      \"name\": \"MyTable1\",\r\n      \"quotedName\": \"MayQuotedTable1\"\r\n    },\r\n    {\r\n      \"columns\": [\r\n        {\r\n          \"errorId\": null,\r\n          \"hasError\": null,\r\n          \"filterIndex\": null,\r\n          \"filterLogicalOperator\": null,\r\n          \"filterOperator\": null,\r\n          \"filterValue\": null,\r\n          \"isFilterable\": null,\r\n          \"isFiltered\": null,\r\n          \"dataSize\": 100,\r\n          \"dataType\": \"String\",\r\n          \"name\": \"b3ee3a7f-7614-4644-ad07-afa832620b4bcolumn1\",\r\n          \"quotedName\": \"b3ee3a7f-7614-4644-ad07-afa832620b4bsql-ds-cmdlet-server9038onesdk9110column1\"\r\n        },\r\n        {\r\n          \"errorId\": null,\r\n          \"hasError\": null,\r\n          \"filterIndex\": null,\r\n          \"filterLogicalOperator\": null,\r\n          \"filterOperator\": null,\r\n          \"filterValue\": null,\r\n          \"isFilterable\": null,\r\n          \"isFiltered\": null,\r\n          \"dataSize\": 200,\r\n          \"dataType\": \"String\",\r\n          \"name\": \"b3ee3a7f-7614-4644-ad07-afa832620b4bcolumn2\",\r\n          \"quotedName\": \"b3ee3a7f-7614-4644-ad07-afa832620b4bsql-ds-cmdlet-server9038onesdk9110column2\"\r\n        }\r\n      ],\r\n      \"errorId\": null,\r\n      \"hasError\": null,\r\n      \"filterClass\": null,\r\n      \"name\": \"MyTable2\",\r\n      \"quotedName\": \"MayQuotedTable2\"\r\n    }\r\n  ],\r\n  \"lastSchemaUpdate\": \"2016-06-01T09:07:38.4664291Z\"\r\n]\r\n}",
+      "ResponseHeaders": {
+        "Content-Length": [
+          "1652"
+        ],
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Expires": [
+          "-1"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "x-ms-request-id": [
+          "99375e5c-b599-48af-b0a3-1507320fddb6"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "x-ms-ratelimit-remaining-subscription-reads": [
+          "14773"
+        ],
+        "x-ms-correlation-request-id": [
+          "473bb62c-edb4-4d6d-bfed-16d24dda057b"
+        ],
+        "x-ms-routing-request-id": [
+          "NORTHEUROPE:20160601T090839Z:473bb62c-edb4-4d6d-bfed-16d24dda057b"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=31536000; includeSubDomains"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Date": [
+          "Wed, 01 Jun 2016 09:08:38 GMT"
+        ],
+        "Server": [
+          "Microsoft-IIS/8.0"
+        ],
+        "X-AspNet-Version": [
+          "4.0.30319"
+        ]
+      },
+      "StatusCode": 200
+    }
+  ],
+  "Names": {
+    "Test-GetSyncMemberSchema": [
+      "onesdk2966",
+      "onesdk9110"
+    ]
+  },
+  "Variables": {
+    "SubscriptionId": "b3ee3a7f-7614-4644-ad07-afa832620b4b",
+    "TenantId": "f686d426-8d16-42db-81b7-ab578e110ccd",
+    "Domain": "microsoft.com",
+    "User": "fangl@microsoft.com"
+  }
+}

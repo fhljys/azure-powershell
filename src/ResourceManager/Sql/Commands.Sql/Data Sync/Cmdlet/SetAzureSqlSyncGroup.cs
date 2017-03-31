@@ -1,0 +1,131 @@
+﻿// ----------------------------------------------------------------------------------
+//
+// Copyright Microsoft Corporation
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// http://www.apache.org/licenses/LICENSE-2.0
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// ----------------------------------------------------------------------------------
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using Microsoft.Azure.Commands.Sql.DataSync.Model;
+using Microsoft.Azure.Management.Sql.Models;
+using Hyak.Common;
+
+namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
+{
+    /// <summary>
+    /// Cmdlet to update a existing sync group
+    /// </summary>
+    [Cmdlet(VerbsCommon.Set, "AzureRmSqlSyncGroup", SupportsShouldProcess = true,
+        DefaultParameterSetName = DefaultSet,
+        ConfirmImpact = ConfirmImpact.Medium)]
+    public class SetAzureSqlSyncGroup : AzureSqlSyncGroupCmdletBase
+    {
+        /// <summary>
+        /// Parameter set name for providing syncDB information
+        /// </summary>
+        private const string SyncDBSet = "SyncDB";
+
+        /// <summary>
+        /// Parameter set name for default
+        /// </summary>
+        private const string DefaultSet = "Default";
+
+        /// <summary>
+        /// Gets or sets the sync group name
+        /// </summary>
+        [Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true,
+            ParameterSetName = DefaultSet,
+            HelpMessage = "The sync group name.")]
+        [Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true,
+            ParameterSetName = SyncDBSet,
+            HelpMessage = "The sync group name.")]
+        [ValidateNotNullOrEmpty]
+        public string SyncGroupName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the interval time of doing data synchronization
+        /// </summary>
+        [Parameter(Mandatory = false, HelpMessage = "The interval time of doing data synchronization.")]
+        public int? Interval { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hub database credential of the sync group
+        /// </summary>
+        [Parameter(Mandatory = false, HelpMessage = "The SQL authentication credetial of hub database.")]
+        public PSCredential HubDatabaseCredential { get; set; }
+
+        /// <summary>
+        /// Gets or sets the path of the schema file
+        /// </summary>
+        [Parameter(Mandatory = false, HelpMessage = "The path of the schema file.")]
+        public string SchemaFile { get; set; }
+
+        /// <summary>
+        /// Get the entities from the service
+        /// </summary>
+        /// <returns>The list of entities</returns>
+        protected override IEnumerable<AzureSqlSyncGroupModel> GetEntity()
+        {
+            return new List<AzureSqlSyncGroupModel>() { 
+                ModelAdapter.GetSyncGroup(this.ResourceGroupName, this.ServerName, this.DatabaseName, this.SyncGroupName) 
+            };
+        }
+
+        /// <summary>
+        /// create the model from user input
+        /// </summary>
+        /// <param name="model">Model retrieved from service</param>
+        /// <returns>The model that was passed in</returns>
+        protected override IEnumerable<AzureSqlSyncGroupModel> ApplyUserInputToModel(IEnumerable<AzureSqlSyncGroupModel> model)
+        {
+            List<Model.AzureSqlSyncGroupModel> newEntity = new List<AzureSqlSyncGroupModel>();
+            AzureSqlSyncGroupModel newModel = new AzureSqlSyncGroupModel()
+            {
+                ResourceGroupName = this.ResourceGroupName,
+                ServerName = this.ServerName,
+                DatabaseName = this.DatabaseName,
+                SyncGroupName = this.SyncGroupName,
+                Interval = this.Interval,
+                HubDatabaseUserName = HubDatabaseCredential != null ? HubDatabaseCredential.UserName : null,
+                HubDatabasePassword = HubDatabaseCredential != null ? HubDatabaseCredential.Password : null
+            };
+            
+            // if schema file is specified
+            if (MyInvocation.BoundParameters.ContainsKey("SchemaFile"))
+            {
+                try
+                {
+                    newModel.Schema = ConstructSchemaFromFile(SchemaFile);
+                }
+                catch (CloudException ex)
+                {
+                    // There are problems with schema file
+                    throw new PSArgumentException(ex.Response.ToString(), "SchemaFile");
+                }
+            }
+            newEntity.Add(newModel);
+            return newEntity;
+        }
+
+        /// <summary>
+        /// Update the sync group
+        /// </summary>
+        /// <param name="entity">The output of apply user input to model</param>
+        /// <returns>The input entity</returns>
+        protected override IEnumerable<AzureSqlSyncGroupModel> PersistChanges(IEnumerable<AzureSqlSyncGroupModel> entity)
+        {
+            return new List<AzureSqlSyncGroupModel>() {
+                ModelAdapter.UpdateSyncGroup(entity.First())
+            };
+        }
+    }
+}
