@@ -15,8 +15,8 @@
 using Microsoft.Azure.ServiceManagemenet.Common;
 using Microsoft.Azure.ServiceManagemenet.Common.Models;
 using Microsoft.Azure.Management.Resources;
-using Microsoft.Azure.Management.Sql;
-using Microsoft.Azure.Management.Sql.Models;
+using Microsoft.Azure.Management.Sql.LegacySdk;
+using Microsoft.Azure.Management.Sql.LegacySdk.Models;
 using Microsoft.WindowsAzure.Management.Storage;
 using System;
 using System.Linq;
@@ -231,7 +231,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// <summary>
         /// List all sync agents
         /// </summary>
-        public IList<Management.Sql.Models.SyncAgent> ListSyncAgent(string resourceGroupName, string serverName, string clientRequestId)
+        public IList<Management.Sql.LegacySdk.Models.SyncAgent> ListSyncAgent(string resourceGroupName, string serverName, string clientRequestId)
         {
             return GetCurrentSqlClient(clientRequestId).DataSync.ListSyncAgent(resourceGroupName, serverName).SyncAgents;
         }

@@ -19,7 +19,7 @@ using System.Management.Automation;
 using Hyak.Common;
 using Microsoft.Azure.Commands.Sql.DataSync.Model;
 using Microsoft.Azure.Commands.Sql.Properties;
-using Microsoft.Azure.Management.Sql.Models;
+using Microsoft.Azure.Management.Sql.LegacySdk.Models;
 using System;
 
 namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet

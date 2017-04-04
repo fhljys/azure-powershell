@@ -22,7 +22,7 @@ using System.Security;
 using Microsoft.Azure.Commands.Common.Authentication.Models;
 using Microsoft.Azure.Commands.Sql.DataSync.Model;
 using Microsoft.Azure.Commands.Sql.Services;
-using Microsoft.Azure.Management.Sql.Models;
+using Microsoft.Azure.Management.Sql.LegacySdk.Models;
 
 namespace Microsoft.Azure.Commands.Sql.DataSync.Services
 {
