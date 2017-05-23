@@ -22,7 +22,7 @@ namespace Microsoft.Azure.Commands.Sql.Test.ScenarioTests
 {
     public class DataSyncTests : SqlTestsBase
     {
-        public DataSyncTests(ITestOutputHelper output)
+        public DataSyncTests(ITestOutputHelper output) : base(output)
         {
             XunitTracingInterceptor.AddToContext(new XunitTracingInterceptor(output));
         }

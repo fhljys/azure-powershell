@@ -23,6 +23,7 @@ using Microsoft.Azure.Commands.Common.Authentication.Models;
 using Microsoft.Azure.Commands.Sql.DataSync.Model;
 using Microsoft.Azure.Commands.Sql.Services;
 using Microsoft.Azure.Management.Sql.LegacySdk.Models;
+using Microsoft.Azure.Commands.Common.Authentication.Abstractions;
 
 namespace Microsoft.Azure.Commands.Sql.DataSync.Services
 {
@@ -39,18 +40,18 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// <summary>
         /// Gets or sets the Azure profile
         /// </summary>
-        public AzureContext Context { get; set; }
+        public IAzureContext Context { get; set; }
 
         /// <summary>
         /// Gets or sets the Azure Subscription
         /// </summary>
-        private AzureSubscription _subscription { get; set; }
+        private IAzureSubscription _subscription { get; set; }
 
         /// <summary>
         /// Constructs a data sync adapter
         /// </summary>
         /// <param name="context">The current azure profile</param>
-        public AzureSqlDataSyncAdapter(AzureContext context)
+        public AzureSqlDataSyncAdapter(IAzureContext context)
         {
             Context = context;
             _subscription = context.Subscription;

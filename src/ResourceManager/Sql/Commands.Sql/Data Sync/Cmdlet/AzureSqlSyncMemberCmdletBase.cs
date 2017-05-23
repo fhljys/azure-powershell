@@ -18,6 +18,7 @@ using Microsoft.Azure.Commands.Common.Authentication.Models;
 using Microsoft.Azure.Commands.Sql.Common;
 using Microsoft.Azure.Commands.Sql.DataSync.Model;
 using Microsoft.Azure.Commands.Sql.DataSync.Services;
+using Microsoft.Azure.Commands.Common.Authentication.Abstractions;
 
 namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
 {
@@ -38,9 +39,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// </summary>
         /// <param name="subscription">The Azure Subscription in which the current execution is performed</param>
         /// <returns>An initialized and ready to use ModelAdapter object</returns>
-        protected override AzureSqlDataSyncAdapter InitModelAdapter(AzureSubscription subscription)
+        protected override AzureSqlDataSyncAdapter InitModelAdapter(IAzureSubscription subscription)
         {
-            return new AzureSqlDataSyncAdapter(DefaultProfile.Context);
+            return new AzureSqlDataSyncAdapter(DefaultProfile.DefaultContext);
         }
     }
 }
