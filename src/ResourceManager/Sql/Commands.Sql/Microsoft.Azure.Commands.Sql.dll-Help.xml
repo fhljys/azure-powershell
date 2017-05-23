@@ -164,8 +164,10 @@
 </maml:para>
 </dev:remarks>
 </command:example>
-<command:example><maml:title>Example 2: Using Pipe Line to pipe in the database objects</maml:title>
-<dev:code>PS C:\&gt; Get-AzureRmSqlDatabase -ServerName testsvr -ResourceGroupName rg2 | Add-AzureRmSqlDatabaseToFailoverGroup -FailoverGroupName myFg-ResourceGroupName myRg -ServerName mysvr</dev:code>
+<command:example><maml:title>Example 2</maml:title>
+<dev:code>Using Pipe Line to pipe in the database objects 
+
+PS C:\&gt; Get-AzureRmSqlDatabase -ServerName testsvr -ResourceGroupName rg2 | Add-AzureRmSqlDatabaseToFailoverGroup -FailoverGroupName myFg-ResourceGroupName myRg -ServerName mysvr</dev:code>
 <dev:remarks><maml:para>
 </maml:para>
 </dev:remarks>
@@ -11106,58 +11108,17 @@ The schema payload is the same as Example 1.</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Edition</maml:name>
-<maml:Description><maml:para>Specifies the edition to assign to the database. The acceptable values for this parameter are:
-</maml:para>
-<maml:para>- Default
-</maml:para>
-<maml:para>- None
-</maml:para>
-<maml:para>- Premium
-</maml:para>
-<maml:para>- Basic
-</maml:para>
-<maml:para>- Standard
-</maml:para>
-<maml:para>- DataWarehouse
-</maml:para>
-<maml:para>- Free
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ReadScale</maml:name>
+<maml:Description><maml:para>The read scale option to assign to the Azure SQL Database.(Enabled/Disabled)
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">DatabaseEdition</command:parameterValue>
-<dev:type><maml:name>DatabaseEdition</maml:name>
+<command:parameterValue required="true" variableLength="false">DatabaseReadScale</command:parameterValue>
+<dev:type><maml:name>DatabaseReadScale</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>RequestedServiceObjectiveName</maml:name>
 <maml:Description><maml:para>Specifies the name of the service objective to assign to the database.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>None</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ElasticPoolName</maml:name>
-<maml:Description><maml:para>Specifies the name of the elastic pool in which to put the database.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>None</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Tag"><maml:name>Tags</maml:name>
-<maml:Description><maml:para>Specifies a dictionary of tags that this cmdlet associates with the new database.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
-<dev:type><maml:name>Hashtable</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>None</dev:defaultValue>
-</command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none"><maml:name>ServerName</maml:name>
-<maml:Description><maml:para>Specifies the name of the server that hosts the database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -11174,35 +11135,21 @@ The schema payload is the same as Example 1.</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa"><maml:name>InformationAction</maml:name>
-<maml:Description><maml:para>Specifies how this cmdlet responds to an information event.
-</maml:para>
-<maml:para>The acceptable values for this parameter are:
-</maml:para>
-<maml:para>- Continue
-</maml:para>
-<maml:para>- Ignore
-</maml:para>
-<maml:para>- Inquire
-</maml:para>
-<maml:para>- SilentlyContinue
-</maml:para>
-<maml:para>- Stop
-</maml:para>
-<maml:para>- Suspend
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
-<dev:type><maml:name>ActionPreference</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>None</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="iv"><maml:name>InformationVariable</maml:name>
-<maml:Description><maml:para>Specifies an information variable.
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none"><maml:name>ServerName</maml:name>
+<maml:Description><maml:para>Specifies the name of the server that hosts the database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Tag"><maml:name>Tags</maml:name>
+<maml:Description><maml:para>Specifies a dictionary of tags that this cmdlet associates with the new database.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+<dev:type><maml:name>Hashtable</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
@@ -11223,6 +11170,15 @@ The schema payload is the same as Example 1.</dev:code>
 <dev:type><maml:name>SwitchParameter</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SampleName</maml:name>
+<maml:Description><maml:para>The name of the sample schema to apply when creating this database.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 </command:parameters>
 <command:inputTypes></command:inputTypes>
@@ -15342,8 +15298,24 @@ Schema                      :</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DatabaseType</maml:name>
-<maml:Description><maml:para>The database type.
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="infa"><maml:name>InformationAction</maml:name>
+<maml:Description><maml:para>Specifies how this cmdlet responds to an information event.
 </maml:para>
 </maml:Description>
 <command:parameterValueGroup><command:parameterValue required="false" variableLength="false">SqlServerDatabase</command:parameterValue>
@@ -15748,10 +15720,20 @@ SyncState                   : Good</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Force</maml:name>
-<maml:Description><maml:para>Forces the command to run without asking for user confirmation.
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none"><maml:name>ResourceGroupName</maml:name>
+<maml:Description><maml:para>Specifies the name of the Azure resource group to which the database is assigned.
 </maml:para>
 </maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
 <dev:type><maml:name>SwitchParameter</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
@@ -16645,13 +16627,12 @@ SyncState                   : Good</dev:code>
 <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
 <command:details><command:name>Remove-AzureRmSqlDatabaseFailoverGroup</command:name>
 <command:verb>Remove</command:verb>
-<command:noun>AzureRmSqlDatabaseFailoverGroup</command:noun>
-<maml:description><maml:para>The Cmdlet that removes the Azure SQL Failover Group
+<command:noun>AzureRmSqlDatabaseFromFailoverGroup</command:noun>
+<maml:description><maml:para>The Cmdlet that drops databases from the Azure SQL Failover Group.
 </maml:para>
 </maml:description>
 </command:details>
-<maml:description><maml:para>This command deletes all secondary databases included the FG and removes the FG object with the specified name from each participating server. The primary databases will become regular read-write databases. The listener endpoint will be unregistered from DNS.
-
+<maml:description><maml:para>This command must be executed on the primary server. The command drops the corresponding secondary databases on all secondary servers and unregisters the read-write databases from the FG.  The database input parameter is a Azure Sql Database Model and it should be either piped in or passed in as a environmental variable.
 </maml:para>
 </maml:description>
 <command:syntax><command:syntaxItem><maml:name>Remove-AzureRmSqlDatabaseFailoverGroup</maml:name>
@@ -16664,7 +16645,25 @@ SyncState                   : Good</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none"><maml:name>ServerName</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>FailoverGroupName</maml:name>
+<maml:Description><maml:para>The name of the Azure SQL Failover Group.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ResourceGroupName</maml:name>
+<maml:Description><maml:para>The name of the resource group.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ServerName</maml:name>
 <maml:Description><maml:para>The name of the Azure SQL Server the Failover Group is in.
 </maml:para>
 </maml:Description>
@@ -16673,38 +16672,12 @@ SyncState                   : Good</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="none"><maml:name>FailoverGroupName</maml:name>
-<maml:Description><maml:para>The name of the Azure SQL Failover Group to remove.
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Tag"><maml:name>Tags</maml:name>
+<maml:Description><maml:para>The tag to associate with the Azure Sql Elastic Pool
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>None</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Force</maml:name>
-<maml:Description><maml:para>Skip confirmation message for performing the action
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>PartnerResourceGroupName</maml:name>
-<maml:Description><maml:para>The partner resource group name for Azure SQL Database Failover Group.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>None</dev:defaultValue>
-</command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>PartnerServerName</maml:name>
-<maml:Description><maml:para>The partner server name for Azure SQL Database Failover Group.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+<dev:type><maml:name>Hashtable</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
@@ -16726,8 +16699,17 @@ SyncState                   : Good</dev:code>
 </command:parameter>
 </command:syntaxItem>
 </command:syntax>
-<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="none"><maml:name>FailoverGroupName</maml:name>
-<maml:Description><maml:para>The name of the Azure SQL Failover Group to remove.
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>Databases</maml:name>
+<maml:Description><maml:para>The Azure SQL Databases to be added to the secondary server.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">System.Collections.Generic.List`1[Microsoft.Azure.Commands.Sql.Database.Model.AzureSqlDatabaseModel]</command:parameterValue>
+<dev:type><maml:name>System.Collections.Generic.List`1[Microsoft.Azure.Commands.Sql.Database.Model.AzureSqlDatabaseModel]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>FailoverGroupName</maml:name>
+<maml:Description><maml:para>The name of the Azure SQL Failover Group.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -16735,34 +16717,7 @@ SyncState                   : Good</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Force</maml:name>
-<maml:Description><maml:para>Skip confirmation message for performing the action
-</maml:para>
-</maml:Description>
-<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>PartnerResourceGroupName</maml:name>
-<maml:Description><maml:para>The partner resource group name for Azure SQL Database Failover Group.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>None</dev:defaultValue>
-</command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>PartnerServerName</maml:name>
-<maml:Description><maml:para>The partner server name for Azure SQL Database Failover Group.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>None</dev:defaultValue>
-</command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none"><maml:name>ResourceGroupName</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ResourceGroupName</maml:name>
 <maml:Description><maml:para>The name of the resource group.
 </maml:para>
 </maml:Description>
@@ -16771,12 +16726,21 @@ SyncState                   : Good</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none"><maml:name>ServerName</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ServerName</maml:name>
 <maml:Description><maml:para>The name of the Azure SQL Server the Failover Group is in.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Tag"><maml:name>Tags</maml:name>
+<maml:Description><maml:para>The tag to associate with the Azure Sql Elastic Pool
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+<dev:type><maml:name>Hashtable</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
@@ -16818,7 +16782,13 @@ SyncState                   : Good</dev:code>
 </maml:alert>
 </maml:alertSet>
 <command:examples><command:example><maml:title>Example 1</maml:title>
-<dev:code>PS C:\&gt; PS C:\&gt; Remove-AzureRmSqlDatabaseFailoverGroup -PrimaryResourceGroupName "myFG" -ServerName "myserver" -FailoverGroupName "myFG"</dev:code>
+<dev:code>PS C:\&gt; Get-AzureRmSqlDatabase -ServerName testsvr -ResourceGroupName myrg2 -DatabaseName testdb | Remove-AzureRmSqlDatabaseFromFailoverGroup -FailoverGroupName testfg -ResourceGroupName rg2 -ServerName testsvr</dev:code>
+<dev:remarks><maml:para>
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2:</maml:title>
+<dev:code>PS C:\&gt; Get-AzureRmSqlDatabase -ServerName testsvr -ResourceGroupName myrg2 | Remove-AzureRmSqlDatabaseFromFailoverGroup -FailoverGroupName testfg -ResourceGroupName rg2 -ServerName testsvr</dev:code>
 <dev:remarks><maml:para>
 </maml:para>
 </dev:remarks>
