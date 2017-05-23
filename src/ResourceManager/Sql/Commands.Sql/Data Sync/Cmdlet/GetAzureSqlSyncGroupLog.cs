@@ -75,7 +75,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// <returns>The list of entities</returns>
         protected override IEnumerable<AzureSqlSyncGroupLogModel> GetEntity()
         {
-            return ModelAdapter.ListSyncGroupLog(this.ResourceGroupName, this.ServerName, this.DatabaseName, new SyncGroupLogGetParameters
+            return ModelAdapter.ListSyncGroupLogs(this.ResourceGroupName, this.ServerName, this.DatabaseName, new SyncGroupLogGetParameters
             {
                 SyncGroupName = this.SyncGroupName,
                 StartTime = this.StartTime,

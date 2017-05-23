@@ -59,7 +59,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         protected override IEnumerable<AzureSqlSyncAgentLinkedDatabaseModel> GetEntity()
         {
             ModelAdapter.GetSyncAgent(this.ResourceGroupName, this.ServerName, this.SyncAgentName);
-            return ModelAdapter.ListSyncAgentLinkedDatabase(this.ResourceGroupName, this.ServerName, this.SyncAgentName);
+            return ModelAdapter.ListSyncAgentLinkedDatabases(this.ResourceGroupName, this.ServerName, this.SyncAgentName);
         }
 
         /// <summary>

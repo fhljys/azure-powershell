@@ -73,32 +73,32 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         }
 
         /// <summary>
-        /// Gets a list of sync group
+        /// Gets a list of sync groups
         /// </summary>
         /// <param name="resourceGroupName">The resource group the sync group is in</param>
         /// <param name="serverName">The name of the server</param>
         /// <param name="databaseName">The name of the database</param>
         /// <returns>A list of sync group objects</returns>
-        internal ICollection<AzureSqlSyncGroupModel> ListSyncGroup(string resourceGroupName, string serverName, string databaseName)
+        internal ICollection<AzureSqlSyncGroupModel> ListSyncGroups(string resourceGroupName, string serverName, string databaseName)
         {
-            var resp = Communicator.ListSyncGroup(resourceGroupName, serverName, databaseName, Util.GenerateTracingId());
+            var resp = Communicator.ListSyncGroups(resourceGroupName, serverName, databaseName, Util.GenerateTracingId());
             return resp.Select((db) =>{
                 return CreateSyncGroupModelFromResponse(resourceGroupName, serverName, databaseName, db);
             }).ToList();
         }
 
         /// <summary>
-        /// Gets a list of sync group log
+        /// Gets a list of sync group logs
         /// </summary>
         /// <param name="resourceGroupName">The resource group the sync group is in</param>
         /// <param name="serverName">The name of the server</param>
         /// <param name="databaseName">The name of the database</param>
         /// <param name="parameters">Parameters of get sync group log</param>
         /// <returns>A list of sync group log objects</returns>
-        internal ICollection<AzureSqlSyncGroupLogModel> ListSyncGroupLog(string resourceGroupName, string serverName, string databaseName, SyncGroupLogGetParameters parameters)
+        internal ICollection<AzureSqlSyncGroupLogModel> ListSyncGroupLogs(string resourceGroupName, string serverName, string databaseName, SyncGroupLogGetParameters parameters)
         {
             List<AzureSqlSyncGroupLogModel> result = new List<AzureSqlSyncGroupLogModel>();
-            var resp = Communicator.ListSyncGroupLog(resourceGroupName, serverName, databaseName, Util.GenerateTracingId(), parameters);
+            var resp = Communicator.ListSyncGroupLogs(resourceGroupName, serverName, databaseName, Util.GenerateTracingId(), parameters);
             result.AddRange(resp.SyncGroupLogs.Select((db) =>
             {
                 return CreateSyncGroupLogModelFromResponse(db);
@@ -259,16 +259,16 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         }
 
         /// <summary>
-        /// Gets a list of sync member
+        /// Gets a list of sync members
         /// </summary>
         /// <param name="resourceGroupName">The resource group the sync members are in</param>
         /// <param name="serverName">The name of the server</param>
         /// <param name="databaseName">The name of the database</param>
         /// <param name="syncGroupName">The name of the sync group</param>
         /// <returns>A list of sync member objects</returns>
-        internal ICollection<AzureSqlSyncMemberModel> ListSyncMember(string resourceGroupName, string serverName, string databaseName, string syncGroupName)
+        internal ICollection<AzureSqlSyncMemberModel> ListSyncMembers(string resourceGroupName, string serverName, string databaseName, string syncGroupName)
         {
-            var resp = Communicator.ListSyncMember(resourceGroupName, serverName, databaseName, syncGroupName, Util.GenerateTracingId());
+            var resp = Communicator.ListSyncMembers(resourceGroupName, serverName, databaseName, syncGroupName, Util.GenerateTracingId());
             return resp.Select((db) =>
             {
                 return CreateSyncMemberModelFromResponse(resourceGroupName, serverName, databaseName, syncGroupName, db);
@@ -384,14 +384,14 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         }
 
         /// <summary>
-        /// Gets a list of sync agent
+        /// Gets a list of sync agents
         /// </summary>
         /// <param name="resourceGroupName">The resource group the sync agents are in</param>
         /// <param name="serverName">The name of the server</param>
         /// <returns>A list of sync agent objects</returns>
-        internal ICollection<AzureSqlSyncAgentModel> ListSyncAgent(string resourceGroupName, string serverName)
+        internal ICollection<AzureSqlSyncAgentModel> ListSyncAgents(string resourceGroupName, string serverName)
         {
-            var resp = Communicator.ListSyncAgent(resourceGroupName, serverName, Util.GenerateTracingId());
+            var resp = Communicator.ListSyncAgents(resourceGroupName, serverName, Util.GenerateTracingId());
 
             return resp.Select((db) =>
             {
@@ -447,9 +447,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// </summary>
         /// <param name="resourceGroupName">The resource group the sync agent is in</param>
         /// <param name="syncAgentName">The name of the sync agent</param>
-        internal ICollection<AzureSqlSyncAgentLinkedDatabaseModel> ListSyncAgentLinkedDatabase(string resourceGroupName, string serverName, string syncAgentName)
+        internal ICollection<AzureSqlSyncAgentLinkedDatabaseModel> ListSyncAgentLinkedDatabases(string resourceGroupName, string serverName, string syncAgentName)
         {
-            var resp = Communicator.ListSyncAgentLinkedDatabase(resourceGroupName, serverName, syncAgentName, Util.GenerateTracingId());
+            var resp = Communicator.ListSyncAgentLinkedDatabases(resourceGroupName, serverName, syncAgentName, Util.GenerateTracingId());
             return resp.Select((db) =>
             {
                 return new AzureSqlSyncAgentLinkedDatabaseModel(db);

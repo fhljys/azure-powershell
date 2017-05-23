@@ -65,7 +65,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// <summary>
         /// Lists all databases connected by a given sync agent
         /// </summary>
-        public IList<SyncAgentLinkedDatabase> ListSyncAgentLinkedDatabase(string resourceGroupName, string serverName, string syncAgentName, string clientRequestId)
+        public IList<SyncAgentLinkedDatabase> ListSyncAgentLinkedDatabases(string resourceGroupName, string serverName, string syncAgentName, string clientRequestId)
         {
             return GetCurrentSqlClient(clientRequestId).DataSync.ListSyncAgentLinkedDatabase(resourceGroupName, serverName, syncAgentName).LinkedDatabases;
         }
@@ -141,7 +141,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// <summary>
         /// List all sync groups
         /// </summary>
-        public IList<SyncGroup> ListSyncGroup(string resourceGroupName, string serverName, string databaseName, string clientRequestId)
+        public IList<SyncGroup> ListSyncGroups(string resourceGroupName, string serverName, string databaseName, string clientRequestId)
         {
             return GetCurrentSqlClient(clientRequestId).DataSync.ListSyncGroup(resourceGroupName, serverName, databaseName).SyncGroups;
         }
@@ -149,7 +149,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// <summary>
         /// List sync group logs
         /// </summary>
-        public SyncGroupLogListResponse ListSyncGroupLog(string resourceGroupName, string serverName, string databaseName, string clientRequestId, SyncGroupLogGetParameters parameters)
+        public SyncGroupLogListResponse ListSyncGroupLogs(string resourceGroupName, string serverName, string databaseName, string clientRequestId, SyncGroupLogGetParameters parameters)
         {
             return GetCurrentSqlClient(clientRequestId).DataSync.ListSyncGroupLog(resourceGroupName, serverName, databaseName, parameters);
         }
@@ -190,7 +190,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// <summary>
         /// List all sync members
         /// </summary>
-        public IList<SyncMember> ListSyncMember(string resourceGroupName, string serverName, string databaseName, string syncGroupName, string clientRequestId)
+        public IList<SyncMember> ListSyncMembers(string resourceGroupName, string serverName, string databaseName, string syncGroupName, string clientRequestId)
         {
             return GetCurrentSqlClient(clientRequestId).DataSync.ListSyncMember(resourceGroupName, serverName, databaseName, syncGroupName).SyncMembers;
         }
@@ -232,7 +232,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// <summary>
         /// List all sync agents
         /// </summary>
-        public IList<Management.Sql.LegacySdk.Models.SyncAgent> ListSyncAgent(string resourceGroupName, string serverName, string clientRequestId)
+        public IList<Management.Sql.LegacySdk.Models.SyncAgent> ListSyncAgents(string resourceGroupName, string serverName, string clientRequestId)
         {
             return GetCurrentSqlClient(clientRequestId).DataSync.ListSyncAgent(resourceGroupName, serverName).SyncAgents;
         }

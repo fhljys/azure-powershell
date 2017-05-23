@@ -46,7 +46,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
             }
             else
             {
-                results = ModelAdapter.ListSyncMember(this.ResourceGroupName, this.ServerName, this.DatabaseName, this.SyncGroupName);
+                results = ModelAdapter.ListSyncMembers(this.ResourceGroupName, this.ServerName, this.DatabaseName, this.SyncGroupName);
             }
 
             return results;

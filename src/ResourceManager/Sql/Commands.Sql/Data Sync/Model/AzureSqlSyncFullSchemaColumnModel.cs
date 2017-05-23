@@ -41,12 +41,12 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Model
         /// <summary>
         /// Gets or sets a value indicating whether it has error
         /// </summary>
-        public Boolean HasError { get; set; }
+        public bool HasError { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether it is primary key 
         /// </summary>
-        public Boolean IsPrimaryKey { get; set; }
+        public bool IsPrimaryKey { get; set; }
 
         /// <summary>
         /// Gets or sets name
