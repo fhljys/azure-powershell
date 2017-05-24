@@ -63,6 +63,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// </summary>
         protected override IEnumerable<AzureSqlSyncAgentKeyModel> GetEntity()
         {
+            // Try to get the sync agent first. If the sync agent doesn't exist, it will fail at this step.
             ModelAdapter.GetSyncAgent(this.ResourceGroupName, this.ServerName, this.SyncAgentName);
             return new List<AzureSqlSyncAgentKeyModel>() {
                 ModelAdapter.CreateSyncAgentKey(this.ResourceGroupName, this.ServerName, this.SyncAgentName)
@@ -70,7 +71,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         }
 
         /// <summary>
-        /// Create the new database
+        /// No changes to persist to server
         /// </summary>
         /// <param name="entity">The output of apply user input to model</param>
         /// <returns>The input entity</returns>

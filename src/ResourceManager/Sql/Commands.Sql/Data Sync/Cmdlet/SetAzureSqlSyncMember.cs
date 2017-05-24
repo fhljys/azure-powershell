@@ -39,7 +39,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         public string SyncMemberName { get; set; }
 
         /// <summary>
-        /// Gets or sets the sync member name
+        /// Gets or sets the database type of the member database
         /// </summary>
         [Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true,
             HelpMessage = "The database type.")]
@@ -49,13 +49,13 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// <summary>
         /// Gets or sets the Azure SQL Server Name of the member database. 
         /// </summary>
-        [Parameter(Mandatory = false, HelpMessage = "The id of the Azure SQL Server Name of the member database.")]
+        [Parameter(Mandatory = false, HelpMessage = "The Azure SQL Server Name of the member database.")]
         public string MemberServerName { get; set; }
 
         /// <summary>
-        /// Gets or sets the Azure SQL Server database name of the member database. 
+        /// Gets or sets the Azure SQL database name of the member database. 
         /// </summary>
-        [Parameter(Mandatory = false, HelpMessage = "The id of the Azure SQL Server database name of the member database.")]
+        [Parameter(Mandatory = false, HelpMessage = "The Azure SQL database name of the member database.")]
         public string MemberDatabaseName { get; set; }
 
         /// <summary>

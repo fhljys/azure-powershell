@@ -88,7 +88,7 @@ Accept wildcard characters: False
 ```
 
 ### -Interval
-The interval time of doing data synchronization.
+The frequency (in seconds) of doing data synchronization.
 
 ```yaml
 Type: Int32

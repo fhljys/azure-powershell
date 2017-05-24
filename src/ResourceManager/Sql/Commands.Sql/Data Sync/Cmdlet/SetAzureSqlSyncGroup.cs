@@ -52,9 +52,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         public string SyncGroupName { get; set; }
 
         /// <summary>
-        /// Gets or sets the interval time of doing data synchronization
+        /// Gets or sets the frequency (in seconds) of doing data synchronization
         /// </summary>
-        [Parameter(Mandatory = false, HelpMessage = "The interval time of doing data synchronization.")]
+        [Parameter(Mandatory = false, HelpMessage = "The frequency (in seconds) of doing data synchronization.")]
         public int? Interval { get; set; }
 
         /// <summary>

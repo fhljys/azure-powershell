@@ -95,7 +95,7 @@ Accept wildcard characters: False
 ```
 
 ### -MemberDatabaseName
-The id of the Azure SQL Server database name of the member database.
+The Azure SQL database name of the member database.
 
 ```yaml
 Type: String
@@ -110,7 +110,7 @@ Accept wildcard characters: False
 ```
 
 ### -MemberServerName
-The id of the Azure SQL Server Name of the member database.
+The Azure SQL Server Name of the member database.
 
 ```yaml
 Type: String
