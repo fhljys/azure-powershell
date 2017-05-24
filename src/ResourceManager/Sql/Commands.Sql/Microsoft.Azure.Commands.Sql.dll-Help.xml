@@ -7936,8 +7936,8 @@ Schema                      :</dev:code>
 <maml:Description><maml:para>The end time of the logs to query.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+<dev:type><maml:name>DateTime</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
@@ -7945,8 +7945,8 @@ Schema                      :</dev:code>
 <maml:Description><maml:para>The start time of the logs to query.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+<dev:type><maml:name>DateTime</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
@@ -8005,8 +8005,8 @@ Schema                      :</dev:code>
 <maml:Description><maml:para>The end time of the logs to query.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+<dev:type><maml:name>DateTime</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
@@ -8032,8 +8032,8 @@ Schema                      :</dev:code>
 <maml:Description><maml:para>The start time of the logs to query.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
+<command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+<dev:type><maml:name>DateTime</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
@@ -12180,7 +12180,7 @@ SyncAgentKey                  : "Key"</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Interval</maml:name>
-<maml:Description><maml:para>The interval time of doing data synchronization.
+<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
@@ -12263,7 +12263,7 @@ SyncAgentKey                  : "Key"</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Interval</maml:name>
-<maml:Description><maml:para>The interval time of doing data synchronization.
+<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
@@ -12438,7 +12438,7 @@ Schema                      :</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>MemberDatabaseName</maml:name>
-<maml:Description><maml:para>The id of the Azure SQL Server database name of the member database.
+<maml:Description><maml:para>The Azure SQL database name of the member database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -12447,7 +12447,7 @@ Schema                      :</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>MemberServerName</maml:name>
-<maml:Description><maml:para>The id of the Azure SQL Server Name of the member database.
+<maml:Description><maml:para>The Azure SQL Server Name of the member database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -12624,7 +12624,7 @@ Schema                      :</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>MemberDatabaseName</maml:name>
-<maml:Description><maml:para>The id of the Azure SQL Server database name of the member database.
+<maml:Description><maml:para>The Azure SQL database name of the member database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -12633,7 +12633,7 @@ Schema                      :</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>MemberServerName</maml:name>
-<maml:Description><maml:para>The id of the Azure SQL Server Name of the member database.
+<maml:Description><maml:para>The Azure SQL Server Name of the member database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -22639,7 +22639,7 @@ ValidSince                 : 4/21/2016 3:24:47 PM</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Interval</maml:name>
-<maml:Description><maml:para>The interval time of doing data synchronization.
+<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
@@ -22686,7 +22686,7 @@ ValidSince                 : 4/21/2016 3:24:47 PM</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Interval</maml:name>
-<maml:Description><maml:para>The interval time of doing data synchronization.
+<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
@@ -22833,7 +22833,7 @@ Schema                      :</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>MemberDatabaseName</maml:name>
-<maml:Description><maml:para>The id of the Azure SQL Server database name of the member database.
+<maml:Description><maml:para>The Azure SQL database name of the member database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -22842,7 +22842,7 @@ Schema                      :</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>MemberServerName</maml:name>
-<maml:Description><maml:para>The id of the Azure SQL Server Name of the member database.
+<maml:Description><maml:para>The Azure SQL Server Name of the member database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -22898,7 +22898,7 @@ Schema                      :</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>MemberDatabaseName</maml:name>
-<maml:Description><maml:para>The id of the Azure SQL Server database name of the member database.
+<maml:Description><maml:para>The Azure SQL database name of the member database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -22907,7 +22907,7 @@ Schema                      :</dev:code>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
 <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>MemberServerName</maml:name>
-<maml:Description><maml:para>The id of the Azure SQL Server Name of the member database.
+<maml:Description><maml:para>The Azure SQL Server Name of the member database.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
