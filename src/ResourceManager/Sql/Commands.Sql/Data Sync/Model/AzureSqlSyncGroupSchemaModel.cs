@@ -52,6 +52,10 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Model
             MasterSyncMemberName = schema.MasterSyncMemberName;
         }
 
+        /// <summary>
+        /// Convert AzureSqlSyncGroupSchemaModel to SyncGroupSchema
+        /// </summary>
+        /// <returns>The result SyncGroupSchema</returns>
         public SyncGroupSchema ToSyncGroupSchema()
         {
             List<SyncGroupSchemaTable> syncGroupSchemaTable = null;

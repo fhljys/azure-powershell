@@ -103,8 +103,10 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
                 ServerName = this.ServerName,
                 SyncAgentName = this.SyncAgentName
             });
-            this.syncDatabaseId = SyncDatabaseResourceGroupName == null || SyncDatabaseServerName == null || SyncDatabaseName == null ? null :
+
+            this.syncDatabaseId = string.IsNullOrEmpty(SyncDatabaseResourceGroupName) || string.IsNullOrEmpty(SyncDatabaseServerName) || string.IsNullOrEmpty(SyncDatabaseName) ? null :
                 string.Format("resourceGroups/{0}/providers/Microsoft.Sql/servers/{1}/databases/{2}", SyncDatabaseResourceGroupName, SyncDatabaseServerName, SyncDatabaseName);
+
             return newEntity;
         }
 

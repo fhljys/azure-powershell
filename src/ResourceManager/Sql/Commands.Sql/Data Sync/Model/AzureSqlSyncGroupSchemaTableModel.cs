@@ -58,6 +58,10 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Model
             QuotedName = table != null ? table.QuotedName : null;
         }
 
+        /// <summary>
+        /// Convert AzureSqlSyncGroupSchemaTableModel to SyncGroupSchemaTable
+        /// </summary>
+        /// <returns>The result SyncGroupSchemaTable</returns>
         public SyncGroupSchemaTable ToSyncGroupSchemaTable()
         {
             List<SyncGroupSchemaColumn> syncGroupSchemaColumns = null;
