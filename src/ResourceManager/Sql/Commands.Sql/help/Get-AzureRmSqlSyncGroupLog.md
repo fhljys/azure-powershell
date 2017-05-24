@@ -78,7 +78,7 @@ Accept wildcard characters: False
 The end time of the logs to query.
 
 ```yaml
-Type: String
+Type: DateTime
 Parameter Sets: (All)
 Aliases: 
 
@@ -123,7 +123,7 @@ Accept wildcard characters: False
 The start time of the logs to query.
 
 ```yaml
-Type: String
+Type: DateTime
 Parameter Sets: (All)
 Aliases: 
 

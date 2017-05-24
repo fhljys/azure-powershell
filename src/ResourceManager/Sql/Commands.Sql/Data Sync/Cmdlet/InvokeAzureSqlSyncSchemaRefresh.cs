@@ -50,16 +50,15 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// <returns>The list of entities</returns>
         protected override IEnumerable<AzureSqlSyncGroupModel> GetEntity()
         {
-            // Try to verify the specified sync group exists
-            ModelAdapter.GetSyncGroup(this.ResourceGroupName, this.ServerName, this.DatabaseName, this.SyncGroupName);
-
             // Try to verify the specified sync member exists
             if (MyInvocation.BoundParameters.ContainsKey("SyncMemberName"))
             {
                 ModelAdapter.GetSyncMember(this.ResourceGroupName, this.ServerName, this.DatabaseName, this.SyncGroupName, this.SyncMemberName);
             }
 
-            return null;
+            return new List<AzureSqlSyncGroupModel>() {
+                ModelAdapter.GetSyncGroup(this.ResourceGroupName, this.ServerName, this.DatabaseName, this.SyncGroupName)
+            };
         }
 
         /// <summary>

@@ -42,13 +42,13 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// </summary>
         [Parameter(Mandatory = true, HelpMessage = "The start time of the logs to query.")]
         [ValidateNotNullOrEmpty]
-        public string StartTime { get; set; }
+        public DateTime StartTime { get; set; }
 
         /// <summary>
         /// Gets or sets the end time of logs to query
         /// </summary>
         [Parameter(Mandatory = false, HelpMessage = "The end time of the logs to query.")]
-        public string EndTime { get; set; }
+        public DateTime EndTime { get; set; }
 
         /// <summary>
         /// Gets or sets the type of logs to query
@@ -78,8 +78,8 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
             return ModelAdapter.ListSyncGroupLogs(this.ResourceGroupName, this.ServerName, this.DatabaseName, new SyncGroupLogGetParameters
             {
                 SyncGroupName = this.SyncGroupName,
-                StartTime = this.StartTime,
-                EndTime = this.EndTime == null ? DateTime.UtcNow.ToString() : this.EndTime,
+                StartTime = this.StartTime.ToString(),
+                EndTime = MyInvocation.BoundParameters.ContainsKey("EndTime") ? this.EndTime.ToString() : DateTime.Now.ToString(),
                 Type = this.Type
             });
         }
