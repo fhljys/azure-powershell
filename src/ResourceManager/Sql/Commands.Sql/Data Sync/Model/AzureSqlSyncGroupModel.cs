@@ -54,9 +54,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Model
         public string SyncDatabaseId { get; set; }
 
         /// <summary>
-        /// Gets or sets the interval time of doing data synchronization
+        /// Gets or sets the frequency (in seconds) time of doing data synchronization
         /// </summary>
-        public int? Interval { get; set; }
+        public int? IntervalInSeconds { get; set; }
 
         /// <summary>
         /// Gets or sets the hub database user name
@@ -110,7 +110,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Model
             DatabaseName = databaseName;
             ResourceId = syncGroup.Id;
             SyncGroupName = syncGroup.Name;
-            Interval = syncGroup.Properties.Interval;
+            IntervalInSeconds = syncGroup.Properties.Interval;
             SyncDatabaseId = syncGroup.Properties.SyncDatabaseId;
             HubDatabaseUserName = syncGroup.Properties.HubDatabaseUserName;
             ConflictResolutionPolicy = syncGroup.Properties.ConflictResolutionPolicy == null ? null : syncGroup.Properties.ConflictResolutionPolicy.ToString();

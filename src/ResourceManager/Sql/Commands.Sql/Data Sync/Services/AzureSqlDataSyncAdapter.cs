@@ -24,6 +24,7 @@ using Microsoft.Azure.Commands.Sql.DataSync.Model;
 using Microsoft.Azure.Commands.Sql.Services;
 using Microsoft.Azure.Management.Sql.LegacySdk.Models;
 using Microsoft.Azure.Commands.Common.Authentication.Abstractions;
+using Microsoft.Azure.Commands.Sql.Server.Adapter;
 
 namespace Microsoft.Azure.Commands.Sql.DataSync.Services
 {
@@ -169,9 +170,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 Properties = new SyncGroupCreateOrUpdateProperties
                 {
                     ConflictResolutionPolicy = (ConflictResolutionPolicyType)(model.ConflictResolutionPolicy != null ? Enum.Parse(typeof(ConflictResolutionPolicyType), model.ConflictResolutionPolicy, true) : null),
-                    Interval = model.Interval,
+                    Interval = model.IntervalInSeconds,
                     HubDatabaseUserName = model.HubDatabaseUserName,
-                    HubDatabasePassword = Decrypt(model.HubDatabasePassword),
+                    HubDatabasePassword = AzureSqlServerAdapter.Decrypt(model.HubDatabasePassword),
                     Schema = model.Schema == null ? null : model.Schema.ToSyncGroupSchema(),
                 },
             });
@@ -191,9 +192,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 SyncGroupName = model.SyncGroupName,
                 Properties = new SyncGroupCreateOrUpdateProperties
                 {
-                    Interval = model.Interval,
+                    Interval = model.IntervalInSeconds,
                     HubDatabaseUserName = model.HubDatabaseUserName,
-                    HubDatabasePassword = Decrypt(model.HubDatabasePassword),
+                    HubDatabasePassword = AzureSqlServerAdapter.Decrypt(model.HubDatabasePassword),
                     Schema = model.Schema == null ? null : model.Schema.ToSyncGroupSchema(),
                 },
             });
@@ -311,7 +312,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 properties.DatabaseName = model.MemberDatabaseName;
                 properties.ServerName = model.MemberServerName;
                 properties.UserName = model.UserName;
-                properties.Password = Decrypt(model.Password);
+                properties.Password = AzureSqlServerAdapter.Decrypt(model.Password);
             }
             else 
             {
@@ -341,7 +342,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 DatabaseName = model.MemberDatabaseName,
                 ServerName = model.MemberServerName,
                 UserName = model.UserName,
-                Password = Decrypt(model.Password)
+                Password = AzureSqlServerAdapter.Decrypt(model.Password)
             };
             var resp = Communicator.UpdateSyncMember(model.ResourceGroupName, model.ServerName, model.DatabaseName, Util.GenerateTracingId(), new SyncMemberCreateOrUpdateParameters()
             {
@@ -502,32 +503,6 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         public static AzureSqlSyncAgentModel CreateSyncAgentModelFromResponse(string resourceGroupName, string serverName, SyncAgent syncAgent)
         {
             return new AzureSqlSyncAgentModel(resourceGroupName, serverName, syncAgent);
-        }
-
-        /// <summary>
-        /// Convert a <see cref="System.Security.SecureString"/> to a plain-text string representation.
-        /// This should only be used in a proetected context, and must be done in the same logon and process context
-        /// in which the <see cref="System.Security.SecureString"/> was constructed.
-        /// </summary>
-        /// <param name="secureString">The encrypted <see cref="System.Security.SecureString"/>.</param>
-        /// <returns>The plain-text string representation.</returns>
-        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
-        internal static string Decrypt(SecureString secureString)
-        {
-            if (secureString == null)
-            {
-                return null;
-            }
-            IntPtr unmanagedString = IntPtr.Zero;
-            try
-            {
-                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);
-                return Marshal.PtrToStringUni(unmanagedString);
-            }
-            finally
-            {
-                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
-            }
         }
     }
 }

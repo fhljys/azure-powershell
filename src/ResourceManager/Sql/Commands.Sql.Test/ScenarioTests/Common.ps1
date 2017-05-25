@@ -502,7 +502,7 @@ Gets the values of the parameters used by the sync group tests
 function Get-SqlSyncGroupTestEnvironmentParameters ($testSuffix)
 {
 	return @{ 
-			  interval = 300;
+			  intervalInSeconds = 300;
 	          conflictResolutionPolicy = "HubWin";
 			  }
 }

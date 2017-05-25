@@ -40,8 +40,8 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// <summary>
         /// Gets or sets the frequency (in seconds) of doing data synchronization.
         /// </summary>
-        [Parameter(Mandatory = false, HelpMessage = "The frequency (in seconds) of doing data synchronization.")]
-        public int? Interval { get; set; }
+        [Parameter(Mandatory = false, HelpMessage = "The frequency (in seconds) of doing data synchronization. Default is -1, which means the auto synchronization is not enabled.")]
+        public int? IntervalInSeconds { get; set; }
 
         /// <summary>
         /// Gets or sets the hub database credential of the sync group
@@ -133,7 +133,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
                 ServerName = this.ServerName,
                 DatabaseName = this.DatabaseName,
                 SyncGroupName = this.SyncGroupName,
-                Interval = this.Interval,
+                IntervalInSeconds = this.IntervalInSeconds,
                 ConflictResolutionPolicy = this.ConflictResolutionPolicy != null ? this.ConflictResolutionPolicy.ToString() : null,
                 HubDatabaseUserName = HubDatabaseCredential != null ? HubDatabaseCredential.UserName : null,
                 HubDatabasePassword = HubDatabaseCredential != null ? HubDatabaseCredential.Password : null

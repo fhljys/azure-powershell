@@ -32,7 +32,7 @@ ServerName                  : Server01
 DatabaseName                : Database01
 SyncGroupName               : SyncGroup01
 SyncDatabaseId              : subscriptions/{subscriptionId}/resourceGroups/{syncDatabaseResourceGroup01}/servers/{syncDatabaseServer01}/databases/{syncDatabaseName01}
-Interval                    : 100
+IntervalInSeconds           : 100
 ConflictResolutionPolicy:   : "HubWin"
 HubDatabaseUserName         : 
 HubDatabasePassword         : 
@@ -46,7 +46,7 @@ ServerName                  : Server01
 DatabaseName                : Database01
 SyncGroupName               : SyncGroup02
 SyncDatabaseId              : subscriptions/{subscriptionId}/resourceGroups/{syncDatabaseResourceGroup01}/servers/{syncDatabaseServer01}/databases/{syncDatabaseName01}
-Interval                    : 100
+IntervalInSeconds           : 100
 ConflictResolutionPolicy:   : "HubWin"
 HubDatabaseUserName         : 
 HubDatabasePassword         : 
@@ -66,7 +66,7 @@ ServerName                  : Server01
 DatabaseName                : Database01
 SyncGroupName               : SyncGroup02
 SyncDatabaseId              : subscriptions/{subscriptionId}/resourceGroups/{syncDatabaseResourceGroup01}/servers/{syncDatabaseServer01}/databases/{syncDatabaseName01}
-Interval                    : 100
+IntervalInSeconds           : 100
 ConflictResolutionPolicy:   : "HubWin"
 HubDatabaseUserName         : 
 HubDatabasePassword         : 
