@@ -7838,7 +7838,7 @@ ServerName                  : Server01
 DatabaseName                : Database01
 SyncGroupName               : SyncGroup01
 SyncDatabaseId              : subscriptions/{subscriptionId}/resourceGroups/{syncDatabaseResourceGroup01}/servers/{syncDatabaseServer01}/databases/{syncDatabaseName01}
-Interval                    : 100
+IntervalInSeconds           : 100
 ConflictResolutionPolicy:   : "HubWin"
 HubDatabaseUserName         : 
 HubDatabasePassword         : 
@@ -7852,7 +7852,7 @@ ServerName                  : Server01
 DatabaseName                : Database01
 SyncGroupName               : SyncGroup02
 SyncDatabaseId              : subscriptions/{subscriptionId}/resourceGroups/{syncDatabaseResourceGroup01}/servers/{syncDatabaseServer01}/databases/{syncDatabaseName01}
-Interval                    : 100
+IntervalInSeconds           : 100
 ConflictResolutionPolicy:   : "HubWin"
 HubDatabaseUserName         : 
 HubDatabasePassword         : 
@@ -7871,7 +7871,7 @@ ServerName                  : Server01
 DatabaseName                : Database01
 SyncGroupName               : SyncGroup02
 SyncDatabaseId              : subscriptions/{subscriptionId}/resourceGroups/{syncDatabaseResourceGroup01}/servers/{syncDatabaseServer01}/databases/{syncDatabaseName01}
-Interval                    : 100
+IntervalInSeconds           : 100
 ConflictResolutionPolicy:   : "HubWin"
 HubDatabaseUserName         : 
 HubDatabasePassword         : 
@@ -12179,8 +12179,8 @@ SyncAgentKey                  : "Key"</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Interval</maml:name>
-<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization.
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>IntervalInSeconds</maml:name>
+<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization. Default is -1, which means the auto synchronization is not enabled.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
@@ -12262,8 +12262,8 @@ SyncAgentKey                  : "Key"</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Interval</maml:name>
-<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization.
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>IntervalInSeconds</maml:name>
+<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization. Default is -1, which means the auto synchronization is not enabled.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
@@ -12356,14 +12356,14 @@ SyncAgentKey                  : "Key"</dev:code>
 <command:examples><command:example><maml:title>Example 1: Create a sync group for a SQL Azure database.</maml:title>
 <dev:code>PS C:\&gt; $credential = Get-Credential
 PS C:\&gt; New-AzureRmSqlSyncGroup -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database01" -SyncGroupName "SyncGroup01" -ConflictResolutionPolicy "HubWin"
--HubDatabaseCredential $credential -Interval 100 -SyncDatabaseServerName "syncDatabaseServer01" -SyncDatabaseName "syncDatabaseName01" -SyncDatabaseResourceGroupName "syncDatabaseResourceGroup01" -Schema ".\schema.json"
+-HubDatabaseCredential $credential -IntervalInSeconds 100 -SyncDatabaseServerName "syncDatabaseServer01" -SyncDatabaseName "syncDatabaseName01" -SyncDatabaseResourceGroupName "syncDatabaseResourceGroup01" -Schema ".\schema.json"
 ResourceId                  : /subscriptions/{subscriptionId}/resourceGroups/{ResourceGroup01}/servers/{Server01}/databases/{Database01}/syncGroups/{SyncGroup01}
 ResourceGroupName           : ResourceGroup01
 ServerName                  : Server01
 DatabaseName                : Database01
 SyncGroupName               : SyncGroup01
 SyncDatabaseId              : subscriptions/{subscriptionId}/resourceGroups/{syncDatabaseResourceGroup01}/servers/{syncDatabaseServer01}/databases/{syncDatabaseName01}
-Interval                    : 100
+IntervalInSeconds           : 100
 ConflictResolutionPolicy:   : "HubWin"
 HubDatabaseUserName         : 
 HubDatabasePassword         : 
@@ -22638,8 +22638,8 @@ ValidSince                 : 4/21/2016 3:24:47 PM</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Interval</maml:name>
-<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization.
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>IntervalInSeconds</maml:name>
+<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization. Default is -1, which means the auto synchronization is not enabled.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
@@ -22685,8 +22685,8 @@ ValidSince                 : 4/21/2016 3:24:47 PM</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>None</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Interval</maml:name>
-<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization.
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>IntervalInSeconds</maml:name>
+<maml:Description><maml:para>The frequency (in seconds) of doing data synchronization. Default is -1, which means the auto synchronization is not enabled.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
@@ -22752,14 +22752,14 @@ ValidSince                 : 4/21/2016 3:24:47 PM</dev:code>
 <command:examples><command:example><maml:title>Example 1: Update a sync group for a SQL Azure database.</maml:title>
 <dev:code>PS C:\&gt; $credential = Get-Credential
 PS C:\&gt; New-AzureRmSqlSyncGroup -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database01" -SyncGroupName "SyncGroup01"
--HubDatabaseCredential $credential -Interval 100 -Schema ".\schema.json"
+-HubDatabaseCredential $credential -IntervalInSeconds 100 -Schema ".\schema.json"
 ResourceId                  : /subscriptions/{subscriptionId}/resourceGroups/{ResourceGroup01}/servers/{Server01}/databases/{Database01}/syncGroups/{SyncGroup01}
 ResourceGroupName           : ResourceGroup01
 ServerName                  : Server01
 DatabaseName                : Database01
 SyncGroupName               : SyncGroup01
 SyncDatabaseId              : subscriptions/{subscriptionId}/resourceGroups/{syncDatabaseResourceGroup01}/servers/{syncDatabaseServer01}/databases/{syncDatabaseName01}
-Interval                    : 100
+IntervalInSeconds           : 100
 ConflictResolutionPolicy:   : "HubWin"
 HubDatabaseUserName         : 
 HubDatabasePassword         : 
