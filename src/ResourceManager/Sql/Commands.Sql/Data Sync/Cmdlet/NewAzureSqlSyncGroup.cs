@@ -47,6 +47,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// Gets or sets the hub database credential of the sync group
         /// </summary>
         [Parameter(Mandatory = false, HelpMessage = "The SQL authentication credetial of hub database.")]
+        [ValidateNotNull]
         public PSCredential HubDatabaseCredential { get; set; }
 
         /// <summary>

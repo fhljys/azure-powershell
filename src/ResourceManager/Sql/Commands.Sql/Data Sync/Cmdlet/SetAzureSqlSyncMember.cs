@@ -39,7 +39,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         public string SyncMemberName { get; set; }
 
         /// <summary>
-        /// Gets or sets the database type of the member database
+        /// Gets or sets the database type of the member database. Only AzureSqlDatabase's credential can be updated. So we make DatabaseType required.
         /// </summary>
         [Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true,
             HelpMessage = "The database type.")]
@@ -62,6 +62,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// Gets or sets the credential (username and password) of Azure SQL database. 
         /// </summary>
         [Parameter(Mandatory = false, HelpMessage = "The credential (username and password) of Azure SQL database.")]
+        [ValidateNotNull]
         public PSCredential Credential { get; set; }
 
         /// <summary>
@@ -82,22 +83,20 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// <returns>The model that was passed in</returns>
         protected override IEnumerable<AzureSqlSyncMemberModel> ApplyUserInputToModel(IEnumerable<AzureSqlSyncMemberModel> model)
         {
-            List<AzureSqlSyncMemberModel> newEntity = new List<AzureSqlSyncMemberModel>();
-            AzureSqlSyncMemberModel newModel = new AzureSqlSyncMemberModel()
+            AzureSqlSyncMemberModel newModel = model.First();
+
+            if (MyInvocation.BoundParameters.ContainsKey("Credential"))
             {
-                ResourceGroupName = this.ResourceGroupName,
-                ServerName = this.ServerName,
-                DatabaseName = this.DatabaseName,
-                SyncGroupName = this.SyncGroupName,
-                SyncMemberName = this.SyncMemberName
-            };
-            newModel.MemberDatabaseName = this.MemberDatabaseName;
-            newModel.MemberServerName = this.MemberServerName;
-            newModel.UserName = this.Credential.UserName;
-            newModel.Password = this.Credential.Password;
-            newModel.DatabaseType = this.DatabaseType;
-            newEntity.Add(newModel);
-            return newEntity;
+                newModel.UserName = this.Credential.UserName;
+                newModel.Password = this.Credential.Password;
+            }
+            else
+            {
+                newModel.UserName = null;
+                newModel.Password = null;
+            }
+
+            return model;
         }
 
         /// <summary>

@@ -46,6 +46,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// Gets or sets the hub database credential of the sync group
         /// </summary>
         [Parameter(Mandatory = false, HelpMessage = "The SQL authentication credetial of hub database.")]
+        [ValidateNotNull]
         public PSCredential HubDatabaseCredential { get; set; }
 
         /// <summary>
@@ -72,17 +73,23 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// <returns>The model that was passed in</returns>
         protected override IEnumerable<AzureSqlSyncGroupModel> ApplyUserInputToModel(IEnumerable<AzureSqlSyncGroupModel> model)
         {
-            List<Model.AzureSqlSyncGroupModel> newEntity = new List<AzureSqlSyncGroupModel>();
-            AzureSqlSyncGroupModel newModel = new AzureSqlSyncGroupModel()
+            AzureSqlSyncGroupModel newModel = model.First();
+
+            if (MyInvocation.BoundParameters.ContainsKey("IntervalInSeconds"))
             {
-                ResourceGroupName = this.ResourceGroupName,
-                ServerName = this.ServerName,
-                DatabaseName = this.DatabaseName,
-                SyncGroupName = this.SyncGroupName,
-                IntervalInSeconds = this.IntervalInSeconds,
-                HubDatabaseUserName = HubDatabaseCredential != null ? HubDatabaseCredential.UserName : null,
-                HubDatabasePassword = HubDatabaseCredential != null ? HubDatabaseCredential.Password : null
-            };
+                newModel.IntervalInSeconds = this.IntervalInSeconds;
+            }
+
+            if (MyInvocation.BoundParameters.ContainsKey("HubDatabaseCredential"))
+            {
+                newModel.HubDatabaseUserName = this.HubDatabaseCredential.UserName;
+                newModel.HubDatabasePassword = this.HubDatabaseCredential.Password;
+            }
+            else
+            {
+                newModel.HubDatabaseUserName = null;
+                newModel.HubDatabasePassword = null;
+            }
             
             // if schema file is specified
             if (MyInvocation.BoundParameters.ContainsKey("SchemaFile"))
@@ -97,8 +104,8 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
                     throw new PSArgumentException(ex.Response.ToString(), "SchemaFile");
                 }
             }
-            newEntity.Add(newModel);
-            return newEntity;
+
+            return model;
         }
 
         /// <summary>

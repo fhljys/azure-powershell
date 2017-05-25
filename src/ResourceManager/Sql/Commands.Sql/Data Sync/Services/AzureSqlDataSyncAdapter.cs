@@ -67,9 +67,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
         /// <param name="databaseName">The name of the database</param>
         /// <param name="syncGroupName">The name of the sync group</param>
         /// <returns>The sync group object</returns>
-        public AzureSqlSyncGroupModel GetSyncGroup(string resourceGroupName, string databaseName, string serverName, string syncGroupName)
+        public AzureSqlSyncGroupModel GetSyncGroup(string resourceGroupName, string serverName, string databaseName, string syncGroupName)
         {
-            var resp = Communicator.GetSyncGroup(resourceGroupName, databaseName, serverName, syncGroupName, Util.GenerateTracingId());
+            var resp = Communicator.GetSyncGroup(resourceGroupName, serverName, databaseName, syncGroupName, Util.GenerateTracingId());
             return CreateSyncGroupModelFromResponse(resourceGroupName, serverName, databaseName, resp);
         }
 
