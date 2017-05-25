@@ -172,7 +172,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                     ConflictResolutionPolicy = (ConflictResolutionPolicyType)(model.ConflictResolutionPolicy != null ? Enum.Parse(typeof(ConflictResolutionPolicyType), model.ConflictResolutionPolicy, true) : null),
                     Interval = model.IntervalInSeconds,
                     HubDatabaseUserName = model.HubDatabaseUserName,
-                    HubDatabasePassword = AzureSqlServerAdapter.Decrypt(model.HubDatabasePassword),
+                    HubDatabasePassword = model.HubDatabasePassword == null ? null : AzureSqlServerAdapter.Decrypt(model.HubDatabasePassword),
                     Schema = model.Schema == null ? null : model.Schema.ToSyncGroupSchema(),
                 },
             });
@@ -194,7 +194,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 {
                     Interval = model.IntervalInSeconds,
                     HubDatabaseUserName = model.HubDatabaseUserName,
-                    HubDatabasePassword = AzureSqlServerAdapter.Decrypt(model.HubDatabasePassword),
+                    HubDatabasePassword = model.HubDatabasePassword == null ? null: AzureSqlServerAdapter.Decrypt(model.HubDatabasePassword),
                     Schema = model.Schema == null ? null : model.Schema.ToSyncGroupSchema(),
                 },
             });
@@ -312,7 +312,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 properties.DatabaseName = model.MemberDatabaseName;
                 properties.ServerName = model.MemberServerName;
                 properties.UserName = model.UserName;
-                properties.Password = AzureSqlServerAdapter.Decrypt(model.Password);
+                properties.Password = model.Password == null ? null : AzureSqlServerAdapter.Decrypt(model.Password);
             }
             else 
             {

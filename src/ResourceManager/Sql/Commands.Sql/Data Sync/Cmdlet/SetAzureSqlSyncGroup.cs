@@ -25,28 +25,13 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
     /// Cmdlet to update a existing sync group
     /// </summary>
     [Cmdlet(VerbsCommon.Set, "AzureRmSqlSyncGroup", SupportsShouldProcess = true,
-        DefaultParameterSetName = DefaultSet,
         ConfirmImpact = ConfirmImpact.Medium)]
     public class SetAzureSqlSyncGroup : AzureSqlSyncGroupCmdletBase
     {
         /// <summary>
-        /// Parameter set name for providing syncDB information
-        /// </summary>
-        private const string SyncDBSet = "SyncDB";
-
-        /// <summary>
-        /// Parameter set name for default
-        /// </summary>
-        private const string DefaultSet = "Default";
-
-        /// <summary>
         /// Gets or sets the sync group name
         /// </summary>
         [Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true,
-            ParameterSetName = DefaultSet,
-            HelpMessage = "The sync group name.")]
-        [Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true,
-            ParameterSetName = SyncDBSet,
             HelpMessage = "The sync group name.")]
         [ValidateNotNullOrEmpty]
         public string SyncGroupName { get; set; }
