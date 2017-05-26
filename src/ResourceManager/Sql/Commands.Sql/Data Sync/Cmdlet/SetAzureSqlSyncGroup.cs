@@ -96,7 +96,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
             {
                 try
                 {
-                    newModel.Schema = ConstructSchemaFromFile(SchemaFile);
+                    newModel.Schema = ConstructSchemaFromFile(this.SchemaFile);
                 }
                 catch (CloudException ex)
                 {

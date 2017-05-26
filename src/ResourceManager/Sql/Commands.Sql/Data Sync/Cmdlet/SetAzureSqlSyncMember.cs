@@ -47,21 +47,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         public string DatabaseType { get; set; }
 
         /// <summary>
-        /// Gets or sets the Azure SQL Server Name of the member database. 
-        /// </summary>
-        [Parameter(Mandatory = false, HelpMessage = "The Azure SQL Server Name of the member database.")]
-        public string MemberServerName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Azure SQL database name of the member database. 
-        /// </summary>
-        [Parameter(Mandatory = false, HelpMessage = "The Azure SQL database name of the member database.")]
-        public string MemberDatabaseName { get; set; }
-
-        /// <summary>
         /// Gets or sets the credential (username and password) of Azure SQL database. 
         /// </summary>
-        [Parameter(Mandatory = false, HelpMessage = "The credential (username and password) of Azure SQL database.")]
+        [Parameter(Mandatory = true, HelpMessage = "The credential (username and password) of Azure SQL database.")]
         [ValidateNotNull]
         public PSCredential Credential { get; set; }
 

@@ -177,6 +177,8 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 },
             });
 
+            // Workaround for Rest API return response value incorrect issue. Remove this line after backend fix is deployed
+            resp = Communicator.GetSyncGroup(model.ResourceGroupName, model.ServerName, model.DatabaseName, model.SyncGroupName, Util.GenerateTracingId());
             return CreateSyncGroupModelFromResponse(model.ResourceGroupName, model.ServerName, model.DatabaseName, resp);
         }
 
@@ -198,7 +200,9 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                     Schema = model.Schema == null ? null : model.Schema.ToSyncGroupSchema(),
                 },
             });
-
+            
+            // Workaround for Rest API return response value incorrect issue. Remove this line after backend fix is deployed
+            resp = Communicator.GetSyncGroup(model.ResourceGroupName, model.ServerName, model.DatabaseName, model.SyncGroupName, Util.GenerateTracingId());
             return CreateSyncGroupModelFromResponse(model.ResourceGroupName, model.ServerName, model.DatabaseName, resp);
         }
 
@@ -324,6 +328,13 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 SyncMemberName = model.SyncMemberName,
                 Properties = properties,
             });
+
+            // Workaround for Rest API return response value incorrect issue. Remove this line after backend fix is deployed
+            resp = Communicator.GetSyncMember(model.ResourceGroupName, model.ServerName, model.DatabaseName, Util.GenerateTracingId(), new SyncMemberGeneralParameters()
+            {
+                SyncGroupName = model.SyncGroupName,
+                SyncMemberName = model.SyncMemberName,
+            });
             return CreateSyncMemberModelFromResponse(model.ResourceGroupName, model.ServerName, model.DatabaseName, model.SyncGroupName, resp);
         }
 
@@ -342,13 +353,20 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Services
                 DatabaseName = model.MemberDatabaseName,
                 ServerName = model.MemberServerName,
                 UserName = model.UserName,
-                Password = AzureSqlServerAdapter.Decrypt(model.Password)
+                Password = model.Password == null ? null : AzureSqlServerAdapter.Decrypt(model.Password)
             };
             var resp = Communicator.UpdateSyncMember(model.ResourceGroupName, model.ServerName, model.DatabaseName, Util.GenerateTracingId(), new SyncMemberCreateOrUpdateParameters()
             {
                 SyncGroupName = model.SyncGroupName,
                 SyncMemberName = model.SyncMemberName,
                 Properties = properties
+            });
+
+            // Workaround for Rest API return response value incorrect issue. Remove this line after backend fix is deployed
+            resp = Communicator.GetSyncMember(model.ResourceGroupName, model.ServerName, model.DatabaseName, Util.GenerateTracingId(), new SyncMemberGeneralParameters()
+            {
+                SyncGroupName = model.SyncGroupName,
+                SyncMemberName = model.SyncMemberName,
             });
             return CreateSyncMemberModelFromResponse(model.ResourceGroupName, model.ServerName, model.DatabaseName, model.SyncGroupName, resp);
         }

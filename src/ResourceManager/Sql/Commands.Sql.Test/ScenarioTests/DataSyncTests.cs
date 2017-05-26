@@ -104,12 +104,12 @@ namespace Microsoft.Azure.Commands.Sql.Test.ScenarioTests
             RunPowerShellTest("Test-RefreshAndGetSyncGroupHubSchema");
         }
 
-        //[Fact]
-        //[Trait(Category.AcceptanceType, Category.CheckIn)]
-        //public void TestSyncGroupTriggerAndCancelSync()
-        //{
-        //    RunPowerShellTest("Test-TriggerAndCancelSyncGroupSync");
-        //}
+        [Fact]
+        [Trait(Category.AcceptanceType, Category.CheckIn)]
+        public void TestSyncGroupTriggerAndCancelSync()
+        {
+            RunPowerShellTest("Test-TriggerAndCancelSyncGroupSync");
+        }
 
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]
@@ -131,13 +131,6 @@ namespace Microsoft.Azure.Commands.Sql.Test.ScenarioTests
         {
             RunPowerShellTest("Test-CreateSyncMember");
         }
-
-        //[Fact]
-        //[Trait(Category.AcceptanceType, Category.CheckIn)]
-        //public void TestSyncMemberOnPremCreate()
-        //{
-        //    RunPowerShellTest("Test-CreateOnPremSyncMember");
-        //}
 
         [Fact]
         [Trait(Category.AcceptanceType, Category.CheckIn)]

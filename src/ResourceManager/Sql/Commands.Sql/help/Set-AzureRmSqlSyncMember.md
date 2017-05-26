@@ -12,8 +12,8 @@ Updates an Azure SQL Database Sync Member.
 ## SYNTAX
 
 ```
-Set-AzureRmSqlSyncMember -SyncMemberName <String> -DatabaseType <String> [-MemberServerName <String>]
- [-MemberDatabaseName <String>] [-Credential <PSCredential>] -SyncGroupName <String> [-ServerName] <String>
+Set-AzureRmSqlSyncMember -SyncMemberName <String> -DatabaseType <String> -Credential <PSCredential>
+ -SyncGroupName <String> [-ServerName] <String>
  [-DatabaseName] <String> [-ResourceGroupName] <String>
 ```
 
@@ -26,7 +26,7 @@ The **Set-AzureRmSqlSyncGroup** cmdlet modifies properties of an Azure SQL Datab
 ```
 PS C:\> $credential = Get-Credential
 PS C:\> Set-AzureRmSqlSyncMember -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database01" -SyncGroupName "SyncGroup01" -SyncMemberName "SyncMember01"
--DatabaseType "AzureSqlDatabase" -MemberServerName "memberServer01" -MemberDatabaseName "memberDatabase01" -Credential $credential
+-DatabaseType "AzureSqlDatabase" -Credential $credential
 ResourceId                  : subscriptions/{subscriptionId}/resourceGroups/{ResourceGroup01}/servers/{Server01}/databases/{Database01}/syncGroups/{SyncGroup01}/syncMembers/{SyncMember01}
 ResourceGroupName           : ResourceGroup01
 ServerName                  : Server01
@@ -91,36 +91,6 @@ Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -MemberDatabaseName
-The Azure SQL database name of the member database.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -MemberServerName
-The Azure SQL Server Name of the member database.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

@@ -37,22 +37,25 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         /// <summary>
         /// Gets or sets the name of the database used to store sync related metadata
         /// </summary>
-        [Parameter(Mandatory = false,
+        [Parameter(Mandatory = true,
            HelpMessage = "The database used to store sync related metadata.")]
+        [ValidateNotNullOrEmpty]
         public string SyncDatabaseName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the server on which syncDB is hosted
         /// </summary>
-        [Parameter(Mandatory = false,
+        [Parameter(Mandatory = true,
            HelpMessage = "The server on which syncDB is hosted.")]
+        [ValidateNotNullOrEmpty]
         public string SyncDatabaseServerName { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the resource group the syncDB belongs to
         /// </summary>
-        [Parameter(Mandatory = false,
+        [Parameter(Mandatory = true,
            HelpMessage = "The resource group syncDB belongs to.")]
+        [ValidateNotNullOrEmpty]
         public string SyncDatabaseResourceGroupName { get; set; }
 
         /// <summary>
@@ -104,8 +107,13 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
                 SyncAgentName = this.SyncAgentName
             });
 
-            this.syncDatabaseId = string.IsNullOrEmpty(SyncDatabaseResourceGroupName) || string.IsNullOrEmpty(SyncDatabaseServerName) || string.IsNullOrEmpty(SyncDatabaseName) ? null :
-                string.Format("resourceGroups/{0}/providers/Microsoft.Sql/servers/{1}/databases/{2}", SyncDatabaseResourceGroupName, SyncDatabaseServerName, SyncDatabaseName);
+            if (MyInvocation.BoundParameters.ContainsKey("SyncDatabaseResourceGroupName")
+                && MyInvocation.BoundParameters.ContainsKey("SyncDatabaseServerName")
+                && MyInvocation.BoundParameters.ContainsKey("SyncDatabaseName"))
+            {
+                this.syncDatabaseId = string.Format("resourceGroups/{0}/providers/Microsoft.Sql/servers/{1}/databases/{2}", 
+                    this.SyncDatabaseResourceGroupName, this.SyncDatabaseServerName, this.SyncDatabaseName);
+            }
 
             return newEntity;
         }
@@ -118,7 +126,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         protected override IEnumerable<AzureSqlSyncAgentModel> PersistChanges(IEnumerable<AzureSqlSyncAgentModel> entity)
         {
             return new List<AzureSqlSyncAgentModel>() {
-                ModelAdapter.CreateSyncAgent(entity.First(), syncDatabaseId)
+                ModelAdapter.CreateSyncAgent(entity.First(), this.syncDatabaseId)
             };
         }
     }

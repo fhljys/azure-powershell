@@ -598,8 +598,7 @@ function Test-CrudSyncMember
 		# Update a sync member
 		$sm3 = Set-AzureRmSqlSyncMember -ServerName $server.ServerName -ResourceGroupName $rg.ResourceGroupName `
             -DatabaseName $databaseName1 -SyncGroupName $sgName -SyncMemberName $smName `
-			-DatabaseType $smParams.databaseType -MemberDatabaseName $databaseName2 `
-		-MemberServerName $serverName -Credential $credential
+			-DatabaseType $smParams.databaseType -Credential $credential
 		Assert-AreEqual $smParams.databaseType $sm3.DatabaseType
 	    Assert-AreEqual $databaseName2 $sm3.MemberDatabaseName
 		Assert-AreEqual $serverName $sm3.MemberServerName
@@ -777,8 +776,7 @@ function Test-UpdateSyncMember
 		# Update a sync member
 		$sm2 = Set-AzureRmSqlSyncMember -ServerName $server.ServerName -ResourceGroupName $rg.ResourceGroupName `
             -DatabaseName $databaseName1 -SyncGroupName $sgName -SyncMemberName $smName `
-			-DatabaseType $smParams.databaseType -MemberDatabaseName $databaseName2 `
-			-MemberServerName $serverName -Credential $credential
+			-DatabaseType $smParams.databaseType -Credential $credential
 		Assert-AreEqual $smParams.databaseType $sm2.DatabaseType
 	    Assert-AreEqual $databaseName2 $sm2.MemberDatabaseName
 		Assert-AreEqual $serverName $sm2.MemberServerName

@@ -95,6 +95,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         [Parameter(Mandatory = true,
             ParameterSetName = OnPremiseSet,
             HelpMessage = "The name of the resource group where the sync agent is under.")]
+        [ValidateNotNullOrEmpty]
         public string SyncAgentResourceGroupName { get; set; }
 
         /// <summary>
@@ -103,6 +104,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         [Parameter(Mandatory = true,
             ParameterSetName = OnPremiseSet,
             HelpMessage = "The name of server where the sync agent is under.")]
+        [ValidateNotNullOrEmpty]
         public string SyncAgentServerName { get; set; }
 
         /// <summary>
@@ -111,6 +113,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         [Parameter(Mandatory = true,
             ParameterSetName = OnPremiseSet,
             HelpMessage = "The name of the sync agent.")]
+        [ValidateNotNullOrEmpty]
         public string SyncAgentName { get; set; }
 
         /// <summary>
@@ -119,6 +122,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         [Parameter(Mandatory = true,
             ParameterSetName = OnPremiseSet,
             HelpMessage = "The id of the SQL server database which is connected by the sync agent.")]
+        [ValidateNotNullOrEmpty]
         public string SqlServerDatabaseId { get; set; }
 
         /// <summary>
@@ -184,7 +188,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
             } 
             else
             {
-                this.syncAgentId = string.Format("resourceGroups/{0}/providers/Microsoft.Sql/servers/{1}/syncAgents/{2}", SyncAgentResourceGroupName, SyncAgentServerName, SyncAgentName);
+                this.syncAgentId = string.Format("resourceGroups/{0}/providers/Microsoft.Sql/servers/{1}/syncAgents/{2}", this.SyncAgentResourceGroupName, this.SyncAgentServerName, this.SyncAgentName);
                 newModel.SyncAgentId = this.syncAgentId;
                 newModel.SqlServerDatabaseId = this.SqlServerDatabaseId;
                 newModel.DatabaseType = DatabaseTypeEnum.SqlServerDatabase.ToString();
@@ -201,7 +205,7 @@ namespace Microsoft.Azure.Commands.Sql.DataSync.Cmdlet
         protected override IEnumerable<AzureSqlSyncMemberModel> PersistChanges(IEnumerable<AzureSqlSyncMemberModel> entity)
         {
             return new List<AzureSqlSyncMemberModel>() {
-                ModelAdapter.CreateSyncMember(entity.First(), syncAgentId)
+                ModelAdapter.CreateSyncMember(entity.First(), this.syncAgentId)
             };
         }
     }
